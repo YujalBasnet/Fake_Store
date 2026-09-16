@@ -5,6 +5,7 @@ import Productpage from './Pages/Productpage';
 import Productdetails from './Pages/Productdetails';
 import ServicePage from './Pages/ServicePage';
 import Contactpage from './Pages/Contactpage';
+import Home from './components/global/Home';
 
 const App = () => {
 
@@ -13,6 +14,10 @@ const App = () => {
       path: "/",
       element:<Homelayout/>,
       children:[
+        {
+          index:true,
+          element:<Home/>
+        },
       {
         path:"products",
         element:<Productpage/>
