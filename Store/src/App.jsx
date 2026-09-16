@@ -2,6 +2,7 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Homelayout from './Layout/Homelayout';
 import Productpage from './Pages/Productpage';
+import Productdetails from './Pages/Productdetails';
 
 const App = () => {
 
@@ -13,6 +14,10 @@ const App = () => {
       {
         path:"products",
         element:<Productpage/>
+      },
+      {
+        path:"productsdetails/:id",
+        element:<Productdetails/>
       }]
     }
   ]);

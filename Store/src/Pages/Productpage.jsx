@@ -31,7 +31,7 @@ const Productpage = () => {
 
       {dataharu.map((product, index) => {
         return (
-          <Link to={`/product_details/${product.id}`}>
+          <Link to={`/productsdetails/${product.id}`}>
         <div
           key={product.id}
           className="bg-white rounded-xl shadow-md p-5 hover:shadow-xl transition"
