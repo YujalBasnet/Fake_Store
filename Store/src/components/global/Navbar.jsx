@@ -4,7 +4,7 @@ import Button from "../Button";
 const Navbar = () => {
   return (
     <nav className="flex justify-between px-4 h-20 items-center bg-amber-600">
-      <h1 className="text-4xl font-bold">LOGO</h1>
+      <Link to="/" className="text-4xl font-bold"> LOGO </Link>
 
       <ul className="flex gap-4">
         <li>
