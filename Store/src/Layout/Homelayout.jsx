@@ -1,9 +1,13 @@
 import React from 'react'
+import Navbar from '../components/global/Navbar'
 
 const Homelayout = () => {
   return (
-    <div>Homelayout</div>
-  )
-}
+    <>
+    <Navbar/>
+    <main>Homelayout</main>
+    </>
+  );
+};
 
-export default Homelayout
+export default Homelayout;

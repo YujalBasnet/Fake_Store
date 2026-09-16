@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+button {
+  @apply p-2 px-4 rounded-md font-bold cursor-pointer;
+}
