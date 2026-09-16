@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Homelayout from './Layout/Homelayout';
 import Productpage from './Pages/Productpage';
 import Productdetails from './Pages/Productdetails';
+import ServicePage from './Pages/ServicePage';
 
 const App = () => {
 
@@ -18,7 +19,12 @@ const App = () => {
       {
         path:"productsdetails/:id",
         element:<Productdetails/>
-      }]
+      },
+      {
+        path:"service",
+        element:<ServicePage/>
+      }
+      ]
     }
   ]);
   return (
