@@ -25,12 +25,7 @@ const Productpage = () => {
       Fake Store Products
     </h1>
   
-  <div className="px-4 py-2">
-    <button onClick={() => navigate("/user")}
-            className="bg-black text-white px-7 py-7 rounded-lg cursor-pointer hover:bg-gray-800 transition ">
-            Click here to see the user!!
-        </button>
-  </div>
+  
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
