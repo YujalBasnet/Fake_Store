@@ -4,6 +4,7 @@ import Homelayout from './Layout/Homelayout';
 import Productpage from './Pages/Productpage';
 import Productdetails from './Pages/Productdetails';
 import ServicePage from './Pages/ServicePage';
+import Contactpage from './Pages/Contactpage';
 
 const App = () => {
 
@@ -23,6 +24,10 @@ const App = () => {
       {
         path:"service",
         element:<ServicePage/>
+      },
+      {
+        path:"contact",
+        element:<Contactpage/>
       }
       ]
     }
