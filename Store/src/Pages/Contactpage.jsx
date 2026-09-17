@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LocationMap from "../components/Map/LocationMap";
 
 const Contactpage = () => {
   const [formData, setFormData] = useState({
@@ -279,6 +280,7 @@ const Contactpage = () => {
 
         </div>
       </section>
+      <LocationMap />
 
       {/* Help Section */}
       <section className="bg-white py-20">
