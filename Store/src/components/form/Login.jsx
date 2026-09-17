@@ -197,20 +197,17 @@ const Login = () => {
               </div>
 
               {/* Remember Me */}
-              <div className="flex items-center gap-3">
-                <input
-                  id="remember"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                />
+              {/* Remember Me */}
+<label className="inline-flex cursor-pointer items-center gap-3 text-sm text-slate-600">
+  <input
+    id="remember"
+    name="remember"
+    type="checkbox"
+    className="h-4 w-4 shrink-0 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+  />
 
-                <label
-                  htmlFor="remember"
-                  className="text-sm text-slate-600"
-                >
-                  Remember me
-                </label>
-              </div>
+  <span>Remember me</span>
+</label>
 
               {/* Submit */}
               <button
