@@ -6,6 +6,7 @@ import Productdetails from './Pages/Productdetails';
 import ServicePage from './Pages/ServicePage';
 import Contactpage from './Pages/Contactpage';
 import Home from './components/global/Home';
+import Login from './components/form/Login';
 
 const App = () => {
 
@@ -33,7 +34,12 @@ const App = () => {
       {
         path:"contact",
         element:<Contactpage/>
-      }
+      },
+      {
+        path:"login",
+        element:<Login/>
+      },
+      
       ]
     }
   ]);
