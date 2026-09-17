@@ -1,26 +1,86 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Button from "../Button";
 
 const Navbar = () => {
-  return (
-    <nav className="flex justify-between px-4 h-20 items-center bg-amber-600">
-      <Link to="/" className="text-4xl font-bold"> LOGO </Link>
+  const navLinkClass = ({ isActive }) =>
+    `relative px-2 py-2 font-medium transition-colors duration-200 ${
+      isActive
+        ? "text-white"
+        : "text-amber-100 hover:text-white"
+    }`;
 
-      <ul className="flex gap-4">
+  return (
+    <nav className="flex h-20 items-center justify-between bg-amber-600 px-4">
+      
+      {/* Logo */}
+      <Link to="/" className="text-4xl font-bold text-white">
+        LOGO
+      </Link>
+
+      {/* Navigation */}
+      <ul className="flex gap-5">
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/" end className={navLinkClass}>
+            {({ isActive }) => (
+              <>
+                Home
+                <span
+                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
+                    isActive ? "w-7" : "w-0 group-hover:w-7"
+                  }`}
+                />
+              </>
+            )}
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/products">Products</Link>
+          <NavLink to="/products" className={navLinkClass}>
+            {({ isActive }) => (
+              <>
+                Products
+                <span
+                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
+                    isActive ? "w-7" : "w-0"
+                  }`}
+                />
+              </>
+            )}
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/service">Service</Link>
+          <NavLink to="/service" className={navLinkClass}>
+            {({ isActive }) => (
+              <>
+                Service
+                <span
+                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
+                    isActive ? "w-7" : "w-0"
+                  }`}
+                />
+              </>
+            )}
+          </NavLink>
         </li>
+
         <li>
-          <Link to="/contact">Contact</Link>
+          <NavLink to="/contact" className={navLinkClass}>
+            {({ isActive }) => (
+              <>
+                Contact
+                <span
+                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
+                    isActive ? "w-7" : "w-0"
+                  }`}
+                />
+              </>
+            )}
+          </NavLink>
         </li>
       </ul>
 
+      {/* Auth Buttons */}
       <div className="flex gap-2">
         <Link to="/login">
           <Button text="Login" color="blue" />
