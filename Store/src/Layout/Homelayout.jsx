@@ -1,20 +1,16 @@
 import React from 'react'
 import Navbar from '../components/global/Navbar'
-import { Outlet } from 'react-router-dom';
-
-import { Link } from "react-router-dom";
-import Footer from '../components/global/Footer';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const Homelayout = () => {
+  const location = useLocation();
+
   return (
     <>
-      <Navbar />
-      <Outlet />
+      {location.pathname !== '/login' && location.pathname !== '/register' && <Navbar />}
       
+      <Outlet />
     </>
-    
-    
-    
   );
 };
 
