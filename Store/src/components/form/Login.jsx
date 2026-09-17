@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,33 +28,34 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!formData.email || !formData.password) {
-      setError("Please enter your email and password.");
-      return;
+  if (!formData.email || !formData.password) {
+    setError("Please enter your email and password.");
+    return;
+  }
+
+  setLoading(true);
+  setError("");
+
+  try {
+    const user = await login({
+      email: formData.email,
+      password: formData.password,
+    });
+
+    // Redirect according to role
+    if (user.role === "admin") {
+      navigate("/admin");
+    } else {
+      navigate("/products");
     }
-
-    setLoading(true);
-    setError("");
-
-    try {
-      // Keep your existing login/API logic here.
-      // Example:
-      // const response = await axios.post("YOUR_LOGIN_API", formData);
-
-      await new Promise((resolve) => setTimeout(resolve, 800));
-
-      console.log("Login data:", formData);
-
-      // Change this to your actual destination after login.
-      navigate("/");
-    } catch (err) {
-      setError("Unable to log in. Please check your credentials and try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  } catch (error) {
+    setError(error.message || "Invalid email or password.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-10">
