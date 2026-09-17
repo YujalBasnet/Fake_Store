@@ -7,6 +7,7 @@ import ServicePage from './Pages/ServicePage';
 import Contactpage from './Pages/Contactpage';
 import Home from './components/global/Home';
 import Login from './components/form/Login';
+import Signup from './components/form/Signup';
 
 const App = () => {
 
@@ -39,6 +40,10 @@ const App = () => {
         path:"login",
         element:<Login/>
       },
+      {
+        path:"register",
+        element:<Signup/>
+      }
       
       ]
     }
