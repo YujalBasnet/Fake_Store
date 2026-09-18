@@ -14,6 +14,7 @@ import Login from "./components/form/Login";
 import Signup from "./components/form/Signup";
 
 import Admin from "./Pages/admin/Admin";
+import AdminUser from "./Pages/admin/AdminUser";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const App = () => {
           index: true,
           element: <Admin />,
         },
+        {
+          path: "users",
+          element:<AdminUser/>
+        }
       ],
     },
   ]);
