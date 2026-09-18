@@ -5,6 +5,11 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handlelogout = () => {
+    logout();
+    navigate("/");
+  }
 
   const navLinkClass = ({ isActive }) =>
     `relative px-2 py-2 font-medium transition-colors duration-200 ${
@@ -103,7 +108,7 @@ const Navbar = () => {
             <Button
               text="Logout"
               color="red"
-              onClick={logout}
+              onClick={handlelogout}
             />
           </>
         ) : (
