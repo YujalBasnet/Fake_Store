@@ -8,6 +8,7 @@ import Contactpage from './Pages/Contactpage';
 import Home from './components/global/Home';
 import Login from './components/form/Login';
 import Signup from './components/form/Signup';
+import Admin from './Pages/admin/Admin';
 
 const App = () => {
 
@@ -43,6 +44,10 @@ const App = () => {
       {
         path:"register",
         element:<Signup/>
+      },
+      {
+        path:"admin",
+        element:<Admin/>
       }
       
       ]
