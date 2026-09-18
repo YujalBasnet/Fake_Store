@@ -15,6 +15,7 @@ import Signup from "./components/form/Signup";
 
 import Admin from "./Pages/admin/Admin";
 import AdminUser from "./Pages/admin/AdminUser";
+import AdminProduct from "./Pages/admin/AdminProduct";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -70,6 +71,10 @@ const App = () => {
         {
           path: "users",
           element:<AdminUser/>
+        },
+        {
+          path: "products",
+          element:<AdminProduct/>
         }
       ],
     },
