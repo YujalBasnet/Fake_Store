@@ -12,12 +12,12 @@ const AuthContextProvider = ({ children }) => {
       role: "admin",
     },
     {
-      id: 2,
-      name: "Jhon",
-      email: "jhon@gmail.com",
-      password: "user123",
-      role: "user",
-    },
+  id: 2,
+  name: "John",
+  email: "john@gmail.com",
+  password: "user123",
+  role: "user",
+},
   ];
 
   // Get registered users from localStorage
@@ -41,10 +41,10 @@ const AuthContextProvider = ({ children }) => {
     const users = getUsers();
 
     const user = users.find(
-      (user) =>
-        user.email === value.email &&
-        user.password === value.password
-    );
+    (user) =>
+    user.email.toLowerCase() === value.email.trim().toLowerCase() &&
+    user.password === value.password
+);
 
     if (!user) {
       throw new Error("Invalid email or password");
