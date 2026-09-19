@@ -1,106 +1,87 @@
+import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+
 import Button from "../Button";
+
 import { AuthContext } from "../../context/AuthContext";
+import { CartContext } from "../../context/CartContext";
 
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
+
+  const { cartCount } = useContext(CartContext);
+
   const navigate = useNavigate();
-  const handlelogout = () => {
+
+  const handleLogout = () => {
     logout();
     navigate("/");
-  }
+  };
 
   const navLinkClass = ({ isActive }) =>
-    `relative px-2 py-2 font-medium transition-colors duration-200 ${
+    `font-medium transition ${
       isActive
-        ? "text-white"
-        : "text-amber-100 hover:text-white"
+        ? "text-white border-b-2 border-white pb-1"
+        : "text-white hover:text-amber-200"
     }`;
 
   return (
-    <nav className="flex h-20 items-center justify-between bg-amber-600 px-4">
+    <nav className="flex h-20 items-center justify-between bg-amber-600 px-6 shadow-md">
 
       {/* Logo */}
-      <Link
-        to="/"
-        className="text-4xl font-bold text-white"
-      >
-        LOGO
+      <Link to="/" className="text-3xl font-bold text-white">
+        FakeStore
       </Link>
 
       {/* Navigation */}
-      <ul className="flex gap-5">
-
+      <ul className="flex items-center gap-6">
         <li>
           <NavLink to="/" end className={navLinkClass}>
-            {({ isActive }) => (
-              <>
-                Home
-                <span
-                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
-                    isActive ? "w-7" : "w-0"
-                  }`}
-                />
-              </>
-            )}
+            Home
           </NavLink>
         </li>
 
         <li>
           <NavLink to="/products" className={navLinkClass}>
-            {({ isActive }) => (
-              <>
-                Products
-                <span
-                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
-                    isActive ? "w-7" : "w-0"
-                  }`}
-                />
-              </>
-            )}
+            Products
           </NavLink>
         </li>
 
         <li>
           <NavLink to="/service" className={navLinkClass}>
-            {({ isActive }) => (
-              <>
-                Service
-                <span
-                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
-                    isActive ? "w-7" : "w-0"
-                  }`}
-                />
-              </>
-            )}
+            Service
           </NavLink>
         </li>
 
         <li>
           <NavLink to="/contact" className={navLinkClass}>
-            {({ isActive }) => (
-              <>
-                Contact
-                <span
-                  className={`absolute bottom-0 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-white transition-all duration-300 ${
-                    isActive ? "w-7" : "w-0"
-                  }`}
-                />
-              </>
-            )}
+            Contact
           </NavLink>
         </li>
-
       </ul>
 
-      {/* Authentication */}
-      <div className="flex items-center gap-2">
+      {/* Right side */}
+      <div className="flex items-center gap-3">
 
         {currentUser ? (
           <>
-            {/* User name */}
-            <span className="mr-2 font-medium text-white">
+            {/* Cart */}
+            <Link
+              to="/cart"
+              className="relative flex items-center justify-center rounded-md p-2 text-2xl text-white transition hover:bg-amber-700"
+              title="Shopping Cart"
+            >
+              🛒
+
+              {cartCount > 0 && (
+                <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-600 px-1 text-xs font-bold text-white">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+
+            {/* User */}
+            <span className="font-medium text-white">
               Hi, {currentUser.name}
             </span>
 
@@ -108,17 +89,15 @@ const Navbar = () => {
             <Button
               text="Logout"
               color="red"
-              onClick={handlelogout}
+              onClick={handleLogout}
             />
           </>
         ) : (
           <>
-            {/* Login */}
             <Link to="/login">
               <Button text="Login" color="blue" />
             </Link>
 
-            {/* Register */}
             <Link to="/register">
               <Button text="Register" color="red" />
             </Link>
