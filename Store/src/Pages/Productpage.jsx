@@ -58,7 +58,7 @@ const Productpage = () => {
           <div className="flex justify-between items-center mt-4">
 
             <p className="text-xl font-bold text-green-600">
-              ${product.price}
+              Rs. {product.price}
             </p>
           
             
