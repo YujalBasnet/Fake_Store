@@ -17,6 +17,7 @@ import Admin from "./Pages/admin/Admin";
 import AdminUser from "./Pages/admin/AdminUser";
 import AdminProduct from "./Pages/admin/AdminProduct";
 import AdminOrder from "./Pages/admin/AdminOrder";
+import Cartpage from "./Pages/Cartpage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const App = () => {
         {
           path: "products",
           element: <Productpage />,
+        },
+        {
+          path: "cart",
+          element: <Cartpage/>
         },
         {
           path: "productsdetails/:id",
