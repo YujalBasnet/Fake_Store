@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { CartContext } from '../context/CartContext.jsx';
 
 
 const Productpage = () => {
     const [dataharu, setdataharu] = useState([]);
     const navigate = useNavigate();
+    const { addToCart } = useContext(CartContext);
 
 
     const fetchData = async () => {
@@ -62,7 +64,8 @@ const Productpage = () => {
             </p>
           
             
-            <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer ">
+            <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer " 
+             onClick={() => addToCart(product)}>
               Add to Cart
             </button>
 
